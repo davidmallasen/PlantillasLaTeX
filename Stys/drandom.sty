@@ -1,0 +1,67 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{drandom}[27/03/18 David random storage package]
+
+%Definir tamaños de página y márgenes
+\RequirePackage{geometry}
+\geometry{
+	a4paper,
+	left=3.00cm,
+	right=3.00cm,
+	top=2.50cm,
+	bottom=2.50cm
+}
+
+%Poder escribir acentos directamente:
+\RequirePackage[utf8]{inputenc}
+%LaTeX sepa que el texto está en español:
+\RequirePackage[spanish, es-tabla]{babel}
+%Quitar la sangría de principio de párrafo
+\setlength{\parindent}{0pt}
+
+%Para añadir imagenes
+\RequirePackage{graphicx}
+\graphicspath{ {imagenes/} }
+
+%Enumerados customs
+\RequirePackage{enumitem}
+
+%Hipervinculos
+\RequirePackage{hyperref}
+
+%Entornos teoremas, etc.
+\newenvironment{enumerateprop}{\begin{enumerate}[label=\upshape\bfseries (\arabic*)]}{\end{enumerate}}
+\newenvironment{enumerateexmp}{\begin{enumerate}[label=\upshape\bfseries (\roman*)]}{\end{enumerate}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}
+\newtheorem{lema}{Lema}
+\newtheorem{prop}{Proposición}
+\newtheorem{cor}{Corolario}
+\newtheorem{cons}{Consecuencia}
+\newtheorem*{cpart}{Caso particular}
+\newtheorem{ejer}{Proposición (ejer.)}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definición}
+\newtheorem{exmp}{Ejemplo}
+\newtheorem*{obs}{Observación}
+\newtheorem*{appl}{Aplicación}
+\newtheorem*{extr}{Extra}
+\newtheorem*{notat}{Notación}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Nota}
+
+\makeatletter
+\@addtoreset{chapter}{part}
+\@addtoreset{thm}{part}
+\@addtoreset{prop}{part}
+\@addtoreset{cor}{part}
+\@addtoreset{cons}{part}
+\@addtoreset{exmp}{part}
+\@addtoreset{defn}{part}
+\makeatother
+
+
+
+\endinput
