@@ -1,0 +1,108 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{dmath}[27/03/18 David custom math package]
+
+%=======================================
+%Paquetes de la AMS:
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+
+%Tachar
+\RequirePackage{centernot}
+
+%Enumerados custom
+\RequirePackage{enumitem}
+
+%Otros paquetes
+\RequirePackage{mathtools}
+
+%=======================================
+%Poner epsilon bonito
+\renewcommand{\epsilon}{\varepsilon}
+
+%Conjuntos usuales.
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+%Implicaciones e = con texto
+\newcommand{\timplies}[1]{\stackrel{\text{#1}}{\implies}}
+\newcommand{\timpliedby}[1]{\stackrel{\text{#1}}{\impliedby}}
+\newcommand{\tiff}[1]{\stackrel{\text{#1}}{\iff}}
+\newcommand{\tigual}[1]{\stackrel{\text{#1}}{=}}
+
+%Implicaciones y contenidos con recuadros (para demostraciones de doble implicación/contención).
+\newcommand{\bra}{\fbox{$\ra$}}
+\newcommand{\bla}{\fbox{$\la$}}
+\newcommand{\bsubset}{\fbox{$\subset$}}
+\newcommand{\bsupset}{\fbox{$\supset$}}
+
+%Implicaciones negadas
+\newcommand{\notimplies}{\centernot\implies}
+\newcommand{\notiff}{\centernot\iff}
+
+%Abreviaturas
+\newcommand{\tq}{\text{ tq. }}
+\newcommand{\partes}{\mathcal{P}}
+
+%Restricción de funciones
+\newcommand\restrict[1]{\raisebox{-.3ex}{\big|}_{#1}}
+
+%Delimitadores
+\DeclarePairedDelimiter \abs{\lvert}{\rvert}
+\DeclarePairedDelimiter \norm{\lVert}{\rVert}
+\DeclarePairedDelimiter \card{\lvert}{\rvert}
+\DeclarePairedDelimiter \ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter \floor{\lfloor}{\rfloor}
+
+%Redimensionar delimitadores por defecto
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\let\oldcard\card
+\def\card{\@ifstar{\oldcard}{\oldcard*}}
+\let\oldceil\ceil
+\def\ceil{\@ifstar{\oldceil}{\oldceil*}}
+\let\oldfloor\floor
+\def\floor{\@ifstar{\oldfloor}{\oldfloor*}}
+\makeatother
+
+%Producto escalar
+\newcommand{\prodesc}[2]{\langle#1, #2\rangle}
+
+%Conjuntos notables topología
+\newcommand{\inter}[1]{\mathring{#1}}
+\newcommand{\acum}[1]{#1'}
+\newcommand{\adh}[1]{\overline{#1}}
+\DeclareMathOperator{\opfronter}{Fr}
+\newcommand{\fr}[1]{\opfronter(#1)}
+\DeclareMathOperator{\opaisl}{Ais}
+\newcommand{\ais}[1]{\opaisl(#1)}
+
+%Sucesiones
+\newcommand{\defsuc}[1]{\left\{#1_n\right\}_{n=1}^\infty}
+\newcommand{\suc}[1]{\{#1_n\}}
+\newcommand{\subsuc}[1]{\{#1_{n_k}\}_{k=1}^\infty}
+
+%Definiciones por casos
+\newcommand{\twopartdefeoc}[3]{
+	\left\{
+	\begin{array}{ll}
+		#1 & \mbox{si } #2 \\
+		#3 & \mbox{e.o.c.}
+	\end{array}
+	\right.
+}
+\newcommand{\twopartdef}[4]{
+	\left\{
+	\begin{array}{ll}
+		#1 & \mbox{si } #2 \\
+		#3 & \mbox{si } #4
+	\end{array}
+	\right.
+}
