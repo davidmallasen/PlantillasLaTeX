@@ -7,6 +7,8 @@
 \RequirePackage[utf8]{inputenc}
 %LaTeX sepa que el texto está en español:
 \RequirePackage[spanish, es-tabla]{babel}
+%Quitar la sangría de principio de párrafo
+\setlength{\parindent}{0pt}
 
 %Paquetes varios
 \RequirePackage{fancyhdr}
