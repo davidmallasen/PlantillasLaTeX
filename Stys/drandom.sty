@@ -33,17 +33,17 @@
 \newenvironment{enumerateexmp}{\begin{enumerate}[label=\upshape\bfseries (\roman*)]}{\end{enumerate}}
 
 \theoremstyle{plain}
-\newtheorem{thm}{Teorema}
-\newtheorem{lema}{Lema}
-\newtheorem{prop}{Proposición}
-\newtheorem{cor}{Corolario}
-\newtheorem{cons}{Consecuencia}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lema}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposición}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{cons}[thm]{Consecuencia}
 \newtheorem*{cpart}{Caso particular}
-\newtheorem{ejer}{Proposición (ejer.)}
+\newtheorem{ejer}[thm]{Proposición (ejer.)}
 
 \theoremstyle{definition}
-\newtheorem{defn}{Definición}
-\newtheorem{exmp}{Ejemplo}
+\newtheorem{defn}[thm]{Definición}
+\newtheorem{exmp}[thm]{Ejemplo}
 \newtheorem*{obs}{Observación}
 \newtheorem*{appl}{Aplicación}
 \newtheorem*{extr}{Extra}
