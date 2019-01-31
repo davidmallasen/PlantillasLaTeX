@@ -9,6 +9,11 @@ if ! [ -d articulo ]; then
 fi
 sudo cp $MPOINT/Articulo/articulo.cls ./articulo/articulo.cls
 
+if ! [ -d apuntes ]; then
+    sudo mkdir apuntes
+fi
+sudo cp $MPOINT/Apuntes/apuntes.cls ./apuntes/apuntes.cls
+
 if ! [ -d entrega ]; then
 	sudo mkdir entrega
 fi
