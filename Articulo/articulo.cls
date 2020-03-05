@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{articulo}[16/06/18 Clase para articulos]
+\ProvidesClass{articulo}[05/03/20 Clase para articulos]
 
 \LoadClass[a4paper, 11pt]{article}
 
@@ -8,7 +8,7 @@
 %LaTeX sepa que el texto está en español:
 \RequirePackage[spanish, es-tabla]{babel}
 %Quitar la sangría de principio de párrafo
-\setlength{\parindent}{0pt}
+%\setlength{\parindent}{0pt}
 
 %Definir tamaños de página y márgenes
 \RequirePackage{geometry}
@@ -16,12 +16,19 @@
 	a4paper,
 	left=3.00cm,
 	right=3.00cm,
-	top=2.50cm,
-	bottom=2.50cm
+	top=4.00cm,
+	bottom=4.00cm
 }
 
 %Hipervinculos
 \RequirePackage{hyperref}
 
+%Comentarios
+\RequirePackage{comment}
+
 %Paquete matemático custom
 \RequirePackage{dmath}
+
+%Para añadir imagenes
+\RequirePackage{graphicx}
+\graphicspath{ {img/} }
