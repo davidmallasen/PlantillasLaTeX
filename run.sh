@@ -24,9 +24,4 @@ if ! [ -d dmath ]; then
 fi
 sudo cp $MPOINT/Stys/dmath.sty ./dmath/dmath.sty
 
-if ! [ -d drandom ]; then
-	sudo mkdir drandom
-fi
-sudo cp $MPOINT/Stys/drandom.sty ./drandom/drandom.sty
-
 sudo texhash

@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{dmath}[27/03/18 David custom math package]
+\ProvidesPackage{dmath}[05/03/20 David custom math package]
 
 %=======================================
 %Paquetes de la AMS:
@@ -15,13 +15,14 @@
 
 %Otros paquetes
 \RequirePackage{mathtools}
+\RequirePackage{mathrsfs} % mathscr font
 
 %=======================================
 %Poner epsilon bonito
 \renewcommand{\epsilon}{\varepsilon}
 
 %Conjuntos usuales.
-\newcommand{\K}{\mathbb{K}}
+\newcommand{\K}{\mathbb{K}} 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
@@ -43,14 +44,19 @@
 %Implicaciones negadas
 \newcommand{\notimplies}{\centernot\implies}
 \newcommand{\notiff}{\centernot\iff}
+\newcommand{\nsubset}{\centernot\subset}
 
 %Abreviaturas
+\newcommand{\mcal}[1]{\mathcal{#1}}
 \newcommand{\tq}{\text{ tq. }}
+\newcommand{\talque}{\text{ tal que }}
 \newcommand{\partes}{\mathcal{P}}
 \newcommand{\Res}[2]{\mathcal{R}\mathit{es}(#1, #2)} %Resultante
 \newcommand{\ResSub}[3]{\mathcal{R}\mathit{es}_{#3}(#1, #2)}
 \newcommand{\Disc}[1]{\mathcal{D}\mathit{isc}(#1)} %Discriminante
 \newcommand{\gr}[1]{\mathit{gr}(#1)} %Grado
+\newcommand{\FM}{\mathcal{FM}} %Medidas difusas
+\newcommand{\BEL}{\mathcal{BEL}} %Creencias
 
 %Restricción de funciones
 \newcommand\restrict[1]{\raisebox{-.3ex}{\big|}_{#1}}
@@ -98,7 +104,7 @@
 	\left\{
 	\begin{array}{ll}
 		#1 & \mbox{si } #2 \\
-		#3 & \mbox{e.o.c.}
+		#3 & \mbox{en otro caso}
 	\end{array}
 	\right.
 }
@@ -110,3 +116,55 @@
 	\end{array}
 	\right.
 }
+
+%Entornos teoremas, etc.
+\newenvironment{enumeratearabic}{\begin{enumerate}[label=\upshape\bfseries (\arabic*)]}{\end{enumerate}}
+\newenvironment{enumerateroman}{\begin{enumerate}[label=\upshape\bfseries (\roman*)]}{\end{enumerate}}
+
+\newtheoremstyle{citedplain}% Removes parenthesis from note
+{9pt}% (space above)
+{5pt}% (space below)
+{\itshape}% (body font)
+{}% (indent amount)
+{\bfseries}% {theorem head font}
+{.}% {punctuation after theorem head}
+{.5em}% {space after theorem head}
+{\thmname{#1} \thmnumber{#2} \thmnote{\normalfont#3}}% {theorem head spec}
+
+\newtheoremstyle{citeddefinition}% Removes parenthesis from note
+{9pt}% (space above)
+{5pt}% (space below)
+{\normalfont}% (body font)
+{}% (indent amount)
+{\bfseries}% {theorem head font}
+{.}% {punctuation after theorem head}
+{.5em}% {space after theorem head}
+{\thmname{#1} \thmnumber{#2} \thmnote{\normalfont#3}}% {theorem head spec}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{lema}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposición}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{cons}[thm]{Consecuencia}
+\newtheorem*{cpart}{Caso particular}
+\newtheorem{ejer}[thm]{Proposición (ejer.)}
+
+\theoremstyle{citedplain}
+\newtheorem{citedthm}[thm]{Teorema}
+\newtheorem{citedprop}[thm]{Proposición}
+\newtheorem{citedcor}[thm]{Corolario}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definición}
+\newtheorem{exmp}[thm]{Ejemplo}
+\newtheorem*{obs}{Observación}
+\newtheorem*{appl}{Aplicación}
+\newtheorem*{extr}{Extra}
+\newtheorem*{notat}{Notación}
+
+\theoremstyle{citeddefinition}
+\newtheorem{citeddefn}[thm]{Definición}
+
+\theoremstyle{remark}
+\newtheorem*{note}{Nota}
