@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{articulo}[05/03/20 Clase para articulos]
+\ProvidesClass{articulo}[08/05/20 Clase para articulos]
 
-\LoadClass[a4paper, 11pt]{article}
+\LoadClass[a4paper, 12pt]{article}
 
 %Poder escribir acentos directamente:
 \RequirePackage[utf8]{inputenc}
@@ -20,11 +20,17 @@
 	bottom=4.00cm
 }
 
+%Referencias
+\RequirePackage[style=alphabetic, sorting=nyt]{biblatex}
+
 %Hipervinculos
 \RequirePackage{hyperref}
 
 %Comentarios
 \RequirePackage{comment}
+
+%Pseudocódigo
+\RequirePackage[spanish,onelanguage,ruled,lined,linesnumbered,commentsnumbered]{algorithm2e}
 
 %Paquete matemático custom
 \RequirePackage{dmath}
@@ -32,3 +38,5 @@
 %Para añadir imagenes
 \RequirePackage{graphicx}
 \graphicspath{ {img/} }
+
+\RequirePackage{subcaption}
