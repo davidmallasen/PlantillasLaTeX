@@ -31,6 +31,9 @@
 
 %Pseudocódigo
 \RequirePackage[spanish,onelanguage,ruled,lined,linesnumbered,commentsnumbered]{algorithm2e}
+\RequirePackage{xcolor}
+\newcommand\mycommfont[1]{\small\ttfamily\textcolor{teal}{#1}}
+\SetCommentSty{mycommfont}
 
 %Paquete matemático custom
 \RequirePackage{dmath}
