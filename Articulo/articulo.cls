@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{articulo}[08/05/20 Clase para articulos]
+\ProvidesClass{articulo}[21/05/20 Clase para articulos]
 
 \LoadClass[a4paper, 12pt]{article}
 
@@ -23,9 +23,6 @@
 %Referencias
 \RequirePackage[style=alphabetic, sorting=nyt]{biblatex}
 
-%Hipervinculos
-\RequirePackage{hyperref}
-
 %Comentarios
 \RequirePackage{comment}
 
@@ -43,3 +40,18 @@
 \graphicspath{ {img/} }
 
 \RequirePackage{subcaption}
+
+%Tablas
+\RequirePackage{multirow}
+
+% Paquetes varios
+\RequirePackage{eurosym} % Símbolo del euro
+
+%Hipervinculos
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=teal,
+	linktocpage,
+}
