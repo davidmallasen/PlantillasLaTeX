@@ -22,6 +22,10 @@
 % OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 % SOFTWARE.
 
+% Note: Look at the Footer section below and the comment:
+% CHANGE THIS NUMBER TO THE NUMBER OF SECTIONS IN YOUR PRESENTATION!!!! NO WORKAROUND SO FAR :(
+
+
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{presentacionUCM}[27/04/23 Plantilla para presentaciones en la UCM]
@@ -71,7 +75,9 @@
 \RequirePackage{multicol}
 \RequirePackage{hyperref}
 \RequirePackage{enumerate}
+\RequirePackage{algorithmic}
 \RequirePackage{tikz}
+\usetikzlibrary{shapes}
 
 % Font
 \usefonttheme{professionalfonts}
@@ -103,11 +109,14 @@ BoldItalicFont=3.ttf,
 \makeatletter
 \setbeamertemplate{footline}{
 	\leavevmode%
-    \begin{beamercolorbox}[ht=.5ex]{upper separation line head}
-    \end{beamercolorbox}
     \hbox{%
-        \begin{beamercolorbox}[wd=\paperwidth,dp=3ex,ht=2.5ex,center]{section in head/foot}%
-            \insertnavigation{0.9\paperwidth}
+        \begin{beamercolorbox}[wd=\paperwidth,ht=0.4ex]{upper separation line head}%
+        \end{beamercolorbox}
+    }%
+    \newline
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=4.7ex,dp=0.1ex]{section in head/foot}%
+            \insertsectionnavigationhorizontal{\paperwidth}{\hskip0pt plus1filll}{\hskip0pt plus1filll}
         \end{beamercolorbox}%
     }%
     \newline
@@ -120,9 +129,32 @@ BoldItalicFont=3.ttf,
 		\end{beamercolorbox}%
 		\begin{beamercolorbox}[wd=.20\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
 			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}\hfill
-			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+			\insertframenumber{} \hspace*{2ex} 
         \end{beamercolorbox}%
     }%
 	\vskip0pt%
 }
+
+\setbeamertemplate{section in head/foot}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=aggiemaroon,fill=aggiemaroon,shape=signal,very thick,text=white,minimum height=1.75em]{\insertsectionhead\hskip.3cm};
+    \else\if\insertsectionheadnumber5 % CHANGE THIS NUMBER TO THE NUMBER OF SECTIONS IN YOUR PRESENTATION!!!! NO WORKAROUND SO FAR :(
+        \tikz\node[draw=aggiemaroon,fill=aggiemaroon,shape=signal,signal from=west, signal to=nowhere, very thick,text=white,minimum height=1.75em]     {\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=aggiemaroon,fill=aggiemaroon,shape=signal,signal from=west, signal to=east,very thick,text=white,minimum height=1.75em]     {\insertsectionhead\hskip.3cm};
+    \fi
+    \fi
+}
+
+\setbeamertemplate{section in head/foot shaded}{%
+    \if\insertsectionheadnumber1
+        \tikz\node[draw=aggiemaroon,fill=white,shape=signal,very thick,text=aggiemaroon,minimum height=1.75em]{\insertsectionhead\hskip.3cm};
+    \else\if\insertsectionheadnumber5 % CHANGE THIS NUMBER TO THE NUMBER OF SECTIONS IN YOUR PRESENTATION!!!! NO WORKAROUND SO FAR :(
+        \tikz\node[draw=aggiemaroon,fill=white,shape=signal,signal from=west, signal to=nowhere, very thick,text=aggiemaroon,minimum height=1.75em]     {\insertsectionhead\hskip.3cm};
+    \else
+        \tikz\node[draw=aggiemaroon,fill=white,shape=signal,signal from=west, signal to=east,very thick,text=aggiemaroon,minimum height=1.75em]     {\insertsectionhead\hskip.3cm};
+    \fi
+    \fi
+}
+
 \makeatother
